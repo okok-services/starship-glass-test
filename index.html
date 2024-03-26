@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .bg {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        object-fit: cover;
+      }
+      .glass-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+      .glass {
+        position: fixed;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="bg" src="./assets/school.jpg" alt="school" />
+
+    <div class="glass-wrap"></div>
+
+    <script>
+      // clicking anywhere on window appends a random glass image,
+
+      window.addEventListener("click", (e) => {
+        const glass = document.createElement("img");
+        let random_num = Math.floor(Math.random() * 2);
+        glass.src = `./assets/glass_${random_num}.png`;
+        glass.classList.add("glass");
+        glass.style.top = `${e.clientY}px`;
+        glass.style.left = `${e.clientX}px`;
+        // randomize size
+        glass.style.width = `${Math.floor(Math.random() * 250) + 150}px`;
+        // offset set to 50% of width with random rotation
+        glass.style.transform = `translate(-50%, -50%) rotate(${Math.floor(Math.random() * 360)}deg)`;
+
+        document.querySelector(".glass-wrap").appendChild(glass);
+      });
+    </script>
+  </body>
+</html>
