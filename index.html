@@ -27,10 +27,27 @@
         position: fixed;
         z-index: 2;
       }
+
+      .glass-cache {
+        opacity: 0.01;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 10px;
+      }
+      .glass-cache img {
+        width: 100%;
+        height: auto;
+      }
     </style>
   </head>
   <body>
     <img class="bg" src="./assets/school.jpg" alt="school" />
+
+    <div class="glass-cache">
+      <img src="./assets/glass_0.png" alt="glass" />
+      <img src="./assets/glass_1.png" alt="glass" />
+    </div>
 
     <div class="glass-wrap"></div>
 
